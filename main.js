@@ -9,7 +9,19 @@
 
   /* -------------------------------------------------- Lenis smooth scroll */
   function initLenis() {
-    if (typeof Lenis === "undefined") return null;
+    if (typeof Lenis === "undefined" || reduceMotion || isMobile) {
+      document.querySelectorAll('a[href^="#"]').forEach((a) => {
+        a.addEventListener("click", (e) => {
+          const id = a.getAttribute("href");
+          if (!id || id === "#" || id.length < 2) return;
+          const target = document.querySelector(id);
+          if (!target) return;
+          e.preventDefault();
+          target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+        });
+      });
+      return null;
+    }
 
     const lenis = new Lenis({
       lerp: 0.08,
@@ -148,6 +160,9 @@
       const open = !overlay.classList.contains("is-open");
       overlay.classList.toggle("is-open", open);
       burger.classList.toggle("is-open", open);
+      burger.setAttribute("aria-expanded", String(open));
+      overlay.setAttribute("aria-hidden", String(!open));
+      document.body.classList.toggle("menu-is-open", open);
       if (open) {
         gsap.from(".menu-overlay__links li", {
           y: 60, opacity: 0, duration: 0.7, stagger: 0.08, delay: 0.25, ease: "power3.out",
@@ -158,6 +173,9 @@
       a.addEventListener("click", () => {
         overlay.classList.remove("is-open");
         burger.classList.remove("is-open");
+        burger.setAttribute("aria-expanded", "false");
+        overlay.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("menu-is-open");
       })
     );
   }
@@ -171,19 +189,20 @@
 
     gsap.set(lines, { y: 140, opacity: 0 });
 
-    const tl = gsap.timeline({ delay: 0.1 });
+    const tl = gsap.timeline({ delay: isMobile ? 0 : 0.1 });
     tl.to(eyebrow, { opacity: 1, duration: 0.8, ease: "power2.out" }, 0)
       .to(lines, {
         y: 0,
         opacity: 1,
-        duration: 1.2,
-        stagger: 0.09,
+        duration: isMobile ? 0.75 : 1.2,
+        stagger: isMobile ? 0.04 : 0.09,
         ease: "power4.out",
-      }, 0.15)
-      .to(sub, { opacity: 1, duration: 0.9, ease: "power2.out" }, 0.7)
-      .to(ctas, { opacity: 1, duration: 0.8, ease: "power2.out" }, 0.85);
+      }, isMobile ? 0.05 : 0.15)
+      .to(sub, { opacity: 1, duration: isMobile ? 0.55 : 0.9, ease: "power2.out" }, isMobile ? 0.35 : 0.7)
+      .to(ctas, { opacity: 1, duration: isMobile ? 0.55 : 0.8, ease: "power2.out" }, isMobile ? 0.45 : 0.85);
 
     // hero parallax
+    if (isMobile || reduceMotion) return;
     const bg = document.querySelector(".hero__bg");
     const noise = document.querySelector(".hero__noise");
     gsap.to(bg, {
