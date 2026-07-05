@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Projects — Ganty Design &amp; Decoration</title>
+  <meta name="description" content="Selected fitout, interior and turnkey projects by Ganty Design &amp; Decoration W.L.L. — Doha, Qatar." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="projects.css" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+</head>
+<body>
+
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"><span>VIEW</span></div>
+
+  <!-- ============================ NAV ============================ -->
+  <nav class="nav is-scrolled" aria-label="Primary">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__brand brand">
+        <svg class="brand__svg" viewBox="0 0 180 72" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ganty">
+        <text x="131" y="22" font-family="DM Sans, sans-serif" font-weight="900" font-size="28" fill="#c9a96e" text-anchor="middle">*</text>
+        <text x="0" y="60" font-family="DM Sans, sans-serif" font-weight="800" font-size="56" letter-spacing="-1.8" fill="#8e8e8e">ga</text>
+        <text x="62" y="60" font-family="DM Sans, sans-serif" font-weight="800" font-size="56" letter-spacing="-1.8" fill="#f5f2ee">nty</text>
+      </svg>
+      
+        <span class="brand__sub">Design &amp; Decoration W.L.L.</span>
+      </a>
+
+      <ul class="nav__links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="projects.html" style="color:var(--gold);">Projects</a></li>
+        <li><a href="index.html#dreamscapes">Dreamscapes</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+
+      <a href="index.html#contact" class="nav__cta">Start a Project</a>
+
+      <button class="nav__burger" aria-label="Menu"><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="menu-overlay" aria-hidden="true">
+    <ul class="menu-overlay__links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="index.html#dreamscapes">Dreamscapes</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- ============================ HERO ============================ -->
+  <header class="proj-hero">
+    <div class="proj-hero__noise"></div>
+    <div class="container proj-hero__inner">
+      <nav class="proj-hero__crumb" aria-label="Breadcrumb">
+        <a href="index.html">Ganty</a>
+        <span class="proj-hero__crumb-sep">/</span>
+        <span>Projects</span>
+      </nav>
+
+      <h1 class="proj-hero__title">All <em>Projects</em>.</h1>
+      <p class="proj-hero__lede">Twelve years of fitout interiors and contracting across Doha — residences, restaurants, hospitals, offices and showrooms. Below is a selection from our archive.</p>
+
+      <dl class="proj-hero__meta">
+        <div><dt>Total Projects</dt><dd>50+</dd></div>
+        <div><dt>Years Active</dt><dd>2012 — Present</dd></div>
+        <div><dt>Sectors</dt><dd>Residential · Commercial · Medical</dd></div>
+        <div><dt>Geography</dt><dd>Doha &amp; Region</dd></div>
+      </dl>
+    </div>
+  </header>
+
+  <!-- ============================ FILTERS ============================ -->
+  <div class="proj-filters">
+    <div class="container proj-filters__inner">
+      <span class="proj-filters__label">Filter —</span>
+      <button class="filter-chip is-active" data-filter="all" data-cursor="view">All <span class="filter-chip__count" data-count="all"></span></button>
+      <button class="filter-chip" data-filter="residential" data-cursor="view">Residential <span class="filter-chip__count" data-count="residential"></span></button>
+      <button class="filter-chip" data-filter="commercial" data-cursor="view">Commercial <span class="filter-chip__count" data-count="commercial"></span></button>
+      <button class="filter-chip" data-filter="hospitality" data-cursor="view">Hospitality <span class="filter-chip__count" data-count="hospitality"></span></button>
+      <button class="filter-chip" data-filter="medical" data-cursor="view">Medical <span class="filter-chip__count" data-count="medical"></span></button>
+      <button class="filter-chip" data-filter="retail" data-cursor="view">Retail <span class="filter-chip__count" data-count="retail"></span></button>
+      <button class="filter-chip" data-filter="construction" data-cursor="view">Construction <span class="filter-chip__count" data-count="construction"></span></button>
+    </div>
+  </div>
+
+  <!-- ============================ GRID ============================ -->
+  <section class="proj-grid-wrap">
+    <div class="container">
+      <div class="proj-grid">
+        <!-- Row 1: feature(2) + normal(1) = 3 -->
+        <a class="proj-card proj-card--feature" href="projects/villa-mohamad.html" data-cat="residential" data-cursor="view">
+          <img class="img-fade" src="images/40.jpg" alt="Villa Mohamad Khalifa Al Thani"/>
+          <div class="proj-card__meta">
+            <div class="proj-card__top">
+              <span class="proj-card__cat">Residential</span>
+              <span class="proj-card__num">01 — 2024</span>
+            </div>
+            <div class="proj-card__bottom">
+              <h3 class="proj-card__name">Villa Mohamad <em>Khalifa Al Thani</em></h3>
+              <span class="proj-card__sub">Doha · Turnkey Villa</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="proj-card" href="projects/qcare-office.html" data-cat="commercial" data-cursor="view">
+          <img class="img-fade" src="images/50.jpg" alt="Qcare Office"/>
+          <div class="proj-card__meta">
+            <div class="proj-card__top">
+              <span class="proj-card__cat">Commercial</span>
+              <span class="proj-card__num">02 — 2022</span>
+            </div>
+            <div class="proj-card__bottom">
+              <h3 class="proj-card__name">Qcare <em>Office</em></h3>
+              <span class="proj-card__sub">Doha · Workspace</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Row 2: 1 + 1 + 1 = 3 -->
+        <a class="proj-card" href="projects/faces-cafe.html" data-cat="hospitality" data-cursor="view">
+          <img class="img-fade" src="images/51.jpg" alt="Faces Café Pearl Qatar"/>
+          <div class="proj-card__meta">
+            <div class="proj-card__top">
+              <span class="proj-card__cat">Hospitality</span>
+              <span class="proj-card__num">03 — 2013</span>
+            </div>
+            <div class="proj-card__bottom">
+              <h3 class="proj-card__name">Faces <em>Café</em></h3>
+              <span class="proj-card__sub">Pearl Qatar · F&amp;B</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="proj-card" href="projects/infiniti-showroom.html" data-cat="retail" data-cursor="view">
+          <img class="img-fade" src="images/57.jpg" alt="Infiniti Showroom"/>
+          <div class="proj-card__meta">
+            <div class="proj-card__top">
+              <span class="proj-card__cat">Retail</span>
+              <span class="proj-card__num">04 — 2014</span>
+            </div>
+            <div class="proj-card__bottom">
+              <h3 class="proj-card__name">Infiniti <em>Showroom</em></h3>
+              <span class="proj-card__sub">Doha · Automotive</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="proj-card" href="projects/cuban-hospital.html" data-cat="medical" data-cursor="view">
+          <img class="img-fade" src="images/65.jpg" alt="Cuban Hospital MRI Room"/>
+          <div class="proj-card__meta">
+            <div class="proj-card__top">
+              <span class="proj-card__cat">Medical</span>
+              <span class="proj-card__num">05 — 2015</span>
+            </div>
+            <div class="proj-card__bottom">
+              <h3 class="proj-card__name">Cuban <em>Hospital</em></h3>
+              <span class="proj-card__sub">Doha · MRI &amp; X-Ray</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Row 3: normal(1) + feature(2) = 3 -->
+        <a class="proj-card" href="projects/sakhama.html" data-cat="construction" data-cursor="view">
+          <img class="img-fade" src="images/45.jpg" alt="Project Sakhama"/>
+          <div class="proj-card__meta">
+            <div class="proj-card__top">
+              <span class="proj-card__cat">Construction</span>
+              <span class="proj-card__num">06 — 2023</span>
+            </div>
+            <div class="proj-card__bottom">
+              <h3 class="proj-card__name">Project <em>Sakhama</em></h3>
+              <span class="proj-card__sub">Doha · Build &amp; Fitout</span>
+            </div>
+          </div>
+        </a>
+
+        <div class="proj-card proj-card--feature is-coming" data-cat="commercial" data-cursor="view">
+          <span class="proj-card__soon">Case Study Soon</span>
+          <img class="img-fade" src="images/61.jpg" alt="First Qatar Real Estate Al Fardan Tower"/>
+          <div class="proj-card__meta">
+            <div class="proj-card__top">
+              <span class="proj-card__cat">Commercial</span>
+              <span class="proj-card__num">09 — 2012</span>
+            </div>
+            <div class="proj-card__bottom">
+              <h3 class="proj-card__name">First <em>Qatar Real Estate</em></h3>
+              <span class="proj-card__sub">Al Fardan Tower · Office</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 4: 1 + 1 + 1 = 3 -->
+        <div class="proj-card is-coming" data-cat="residential" data-cursor="view">
+          <span class="proj-card__soon">Case Study Soon</span>
+          <img class="img-fade" src="images/42.jpg" alt="Villa Rawdet Al Hamamah"/>
+          <div class="proj-card__meta">
+            <div class="proj-card__top">
+              <span class="proj-card__cat">Residential</span>
+              <span class="proj-card__num">07 — 2019</span>
+            </div>
+            <div class="proj-card__bottom">
+              <h3 class="proj-card__name">Villa <em>Rawdet Al Hamamah</em></h3>
+              <span class="proj-card__sub">Doha · Living Areas</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="proj-card is-coming" data-cat="commercial" data-cursor="view">
+          <span class="proj-card__soon">Case Study Soon</span>
+          <img class="img-fade" src="images/53.jpg" alt="Lusail Consultant Office"/>
+          <div class="proj-card__meta">
+            <div class="proj-card__top">
+              <span class="proj-card__cat">Commercial</span>
+              <span class="proj-card__num">08 — 2012</span>
+            </div>
+            <div class="proj-card__bottom">
+              <h3 class="proj-card__name">Lusail <em>Consultant</em></h3>
+              <span class="proj-card__sub">Doha · Office Fitout</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="proj-card is-coming" data-cat="hospitality" data-cursor="view">
+          <span class="proj-card__soon">Case Study Soon</span>
+          <img class="img-fade" src="images/56.jpg" alt="Bos Café Ezdan Mall"/>
+          <div class="proj-card__meta">
+            <div class="proj-card__top">
+              <span class="proj-card__cat">Hospitality</span>
+              <span class="proj-card__num">10 — 2016</span>
+            </div>
+            <div class="proj-card__bottom">
+              <h3 class="proj-card__name">Bos <em>Café</em></h3>
+              <span class="proj-card__sub">Ezdan Mall &amp; Bin Omran</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 5: feature(2) + normal(1) = 3 -->
+        <div class="proj-card proj-card--feature is-coming" data-cat="commercial" data-cursor="view">
+          <span class="proj-card__soon">Case Study Soon</span>
+          <img class="img-fade" src="images/54.jpg" alt="Glamour Salon"/>
+          <div class="proj-card__meta">
+            <div class="proj-card__top">
+              <span class="proj-card__cat">Commercial</span>
+              <span class="proj-card__num">11 — 2013</span>
+            </div>
+            <div class="proj-card__bottom">
+              <h3 class="proj-card__name">Glamour <em>Salon</em></h3>
+              <span class="proj-card__sub">Doha · Beauty &amp; Spa</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="proj-card is-coming" data-cat="retail" data-cursor="view">
+          <span class="proj-card__soon">Case Study Soon</span>
+          <img class="img-fade" src="images/58.jpg" alt="Altinbas Jewelry"/>
+          <div class="proj-card__meta">
+            <div class="proj-card__top">
+              <span class="proj-card__cat">Retail</span>
+              <span class="proj-card__num">12 — 2019</span>
+            </div>
+            <div class="proj-card__bottom">
+              <h3 class="proj-card__name">Altinbas <em>Jewelry</em></h3>
+              <span class="proj-card__sub">Doha · Boutique</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="foot">
+    <div class="container foot__inner">
+      <div class="foot__brand">
+        <div class="brand brand--sm">
+          <svg class="brand__svg" viewBox="0 0 180 72" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ganty">
+          <text x="131" y="22" font-family="DM Sans, sans-serif" font-weight="900" font-size="28" fill="#c9a96e" text-anchor="middle">*</text>
+          <text x="0" y="60" font-family="DM Sans, sans-serif" font-weight="800" font-size="56" letter-spacing="-1.8" fill="#8e8e8e">ga</text>
+          <text x="62" y="60" font-family="DM Sans, sans-serif" font-weight="800" font-size="56" letter-spacing="-1.8" fill="#f5f2ee">nty</text>
+        </svg>
+        <span class="brand__sub">Design &amp; Decoration W.L.L.</span>
+        </div>
+        <span class="foot__copy">© 2025 Ganty Design &amp; Decoration W.L.L.</span>
+      </div>
+      <div>Doha · Qatar — From Vision to Reality</div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="projects.js"></script>
+</body>
+</html>

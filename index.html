@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ganty Design &amp; Decoration — Fitout Interiors &amp; Contracting, Doha Qatar</title>
+  <meta name="description" content="Ganty Design &amp; Decoration W.L.L. — luxury fitout interiors and contracting in Doha, Qatar. Residential, commercial &amp; medical projects since 2012." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+</head>
+<body>
+
+  <!-- ============================ PRELOADER ============================ -->
+  <div class="preloader" aria-hidden="true">
+    <div class="preloader__mark brand brand--lg">
+      <svg class="brand__svg" viewBox="0 0 180 72" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ganty">
+        <text x="131" y="22" font-family="DM Sans, sans-serif" font-weight="900" font-size="28" fill="#c9a96e" text-anchor="middle">*</text>
+        <text x="0" y="60" font-family="DM Sans, sans-serif" font-weight="800" font-size="56" letter-spacing="-1.8" fill="#8e8e8e">ga</text>
+        <text x="62" y="60" font-family="DM Sans, sans-serif" font-weight="800" font-size="56" letter-spacing="-1.8" fill="#f5f2ee">nty</text>
+      </svg>
+      <span class="brand__sub">Design &amp; Decoration W.L.L.</span>
+    </div>
+    <div class="preloader__line"></div>
+    <div class="preloader__counter">000</div>
+  </div>
+
+  <!-- ============================ CURSOR ============================ -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"><span>VIEW</span></div>
+
+  <!-- ============================ NAV ============================ -->
+  <nav class="nav" aria-label="Primary">
+    <div class="container nav__inner">
+      <a href="#top" class="nav__brand brand" aria-label="Ganty Design and Decoration">
+        <!-- Recreated ganty* wordmark (based on attached logo.png) -->
+        <svg class="brand__svg" viewBox="0 0 180 72" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ganty">
+        <text x="131" y="22" font-family="DM Sans, sans-serif" font-weight="900" font-size="28" fill="#c9a96e" text-anchor="middle">*</text>
+        <text x="0" y="60" font-family="DM Sans, sans-serif" font-weight="800" font-size="56" letter-spacing="-1.8" fill="#8e8e8e">ga</text>
+        <text x="62" y="60" font-family="DM Sans, sans-serif" font-weight="800" font-size="56" letter-spacing="-1.8" fill="#f5f2ee">nty</text>
+      </svg>
+      
+        <span class="brand__sub">Design &amp; Decoration W.L.L.</span>
+      </a>
+
+      <ul class="nav__links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#work">Projects</a></li>
+        <li><a href="#dreamscapes">Dreamscapes</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <a href="#contact" class="nav__cta">Start a Project</a>
+
+      <button class="nav__burger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="menu-overlay" aria-hidden="true">
+    <ul class="menu-overlay__links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#work">Projects</a></li>
+      <li><a href="#dreamscapes">Dreamscapes</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- ============================ HERO ============================ -->
+  <header class="hero" id="top">
+    <div class="hero__bg"></div>
+    <div class="hero__noise" aria-hidden="true"></div>
+
+    <div class="container hero__inner">
+      <div class="hero__eyebrow">Doha, Qatar · Est. 2012</div>
+
+      <h1 class="hero__title">
+        <span class="hero__title-line">
+          <span class="word">We</span>&nbsp;<span class="word">Design</span>
+        </span>
+        <span class="hero__title-line hero__title-line--outline">
+          <span class="word">Your</span>&nbsp;<span class="word">Dream</span>
+        </span>
+      </h1>
+
+      <p class="hero__sub">Fitout Interiors &amp; Contracting · From Vision to Reality</p>
+
+      <div class="hero__ctas">
+        <a class="btn btn--gold" href="#work" data-cursor="view">
+          <span class="btn__fill"></span>
+          <span>View Our Work</span>
+          <span aria-hidden="true">→</span>
+        </a>
+        <a class="btn btn--ghost" href="#services">
+          <span class="btn__fill"></span>
+          <span>Our Services</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero__scroll">
+      <span>Scroll</span>
+      <span class="hero__scroll-line"></span>
+    </div>
+  </header>
+
+  <!-- ============================ MARQUEE ============================ -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span class="marquee__item">Interior Design</span>
+      <span class="marquee__item">Interior Fitout</span>
+      <span class="marquee__item">Joinery Works</span>
+      <span class="marquee__item">Turnkey Projects</span>
+      <span class="marquee__item">Landscape &amp; Hardscape</span>
+      <span class="marquee__item">Medical Fitout</span>
+      <span class="marquee__item">Commercial</span>
+      <span class="marquee__item">Residential</span>
+      <span class="marquee__item">Since 2012</span>
+    </div>
+  </div>
+
+  <!-- ============================ ABOUT ============================ -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-head__num">01 — Who We Are</div>
+        <h2 class="section-head__title">A studio for <em>spaces</em><br/>that move people.</h2>
+        <div class="section-head__rule"></div>
+      </div>
+
+      <div class="about__grid">
+        <div class="about__media" data-cursor="view">
+          <div class="about__years">
+            <div class="about__years-num">12<span style="color:var(--ink);font-size:.4em;letter-spacing:0;">+</span></div>
+            <div class="about__years-label">Years in Qatar</div>
+          </div>
+          <div class="about__photo">
+            <img class="img-fade" src="images/42.jpg" alt="Villa Rawdet Al Hamamah living room — Ganty Design" loading="lazy"/>
+            <div class="about__photo-caption">
+              <strong>Mohammed Al Boutary</strong>
+              <span>Founder · GM</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about__copy" data-reveal>
+          <h2>From <em>vision</em> to reality — meticulously crafted, end to end.</h2>
+          <p>Welcome to Ganty Design &amp; Decoration. We specialise in turning your spaces into breathtaking realities through expert interior design and fit-out services.</p>
+          <p>Our dedicated team of designers, architects and craftsmen work tirelessly to transform your vision into meticulously crafted environments — across residential, commercial, medical and construction sectors. From concept to handover, the studio is your single point of contact.</p>
+          <p>Our commitment to quality, innovation, and customer satisfaction sets us apart — and our portfolio across Doha is the proof.</p>
+          <div class="about__sign">
+            Mohammed Al Boutary
+            <small>Founder &amp; General Manager</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat" data-reveal>
+          <div class="stat__num"><span class="val" data-to="12">0</span><span class="suffix">+</span></div>
+          <div class="stat__label">Years in Doha</div>
+        </div>
+        <div class="stat" data-reveal>
+          <div class="stat__num"><span class="val" data-to="50">0</span><span class="suffix">+</span></div>
+          <div class="stat__label">Delivered Projects</div>
+        </div>
+        <div class="stat" data-reveal>
+          <div class="stat__num"><span class="val" data-to="3">0</span></div>
+          <div class="stat__label">Sectors Served</div>
+        </div>
+        <div class="stat" data-reveal>
+          <div class="stat__num"><span class="val" data-to="100">0</span><span class="suffix">%</span></div>
+          <div class="stat__label">Commitment</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ VISION + MISSION ============================ -->
+  <section class="vm">
+    <div class="vm__bg-d" aria-hidden="true">D</div>
+    <div class="container vm__grid">
+      <div class="vm__col" data-reveal>
+        <h3>— Our Vision</h3>
+        <h4>Elevating interiors, inspiring lifestyles.</h4>
+        <p>To be the most trusted partner for fitout and decoration in Qatar — a studio whose work shapes the everyday rituals of the people who inhabit it, and sets the standard for craft, materiality and care in the region.</p>
+      </div>
+
+      <div class="vm__divider" aria-hidden="true"></div>
+
+      <div class="vm__col" data-reveal>
+        <h3>— Our Mission</h3>
+        <h4>Crafting environments that outlast the trend.</h4>
+        <p>To deliver interior design, fitout and turnkey projects of uncompromising quality — pairing disciplined project management with bespoke craftsmanship, and treating every brief as the blueprint for a long, considered relationship.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ SERVICES ============================ -->
+  <section class="services section" id="services">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-head__num">02 — Our Services</div>
+        <h2 class="section-head__title">Six disciplines, <em>one studio</em>.</h2>
+        <div class="section-head__rule"></div>
+      </div>
+
+      <div class="services__grid">
+        <article class="service">
+          <div class="service__index">001</div>
+          <div>
+            <div class="service__icon" aria-hidden="true">
+              <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.2">
+                <rect x="6" y="6" width="44" height="44"/>
+                <path d="M6 22h44M22 6v44"/>
+                <circle cx="38" cy="38" r="4" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3 class="service__title">Interior Design</h3>
+            <p class="service__desc">Concept development to material selection — elegant, functional, deeply personal environments aligned to your brand and lifestyle.</p>
+          </div>
+        </article>
+
+        <article class="service">
+          <div class="service__index">002</div>
+          <div>
+            <div class="service__icon" aria-hidden="true">
+              <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.2">
+                <path d="M8 48V20l20-12 20 12v28"/>
+                <path d="M8 48h40M22 48V32h12v16"/>
+              </svg>
+            </div>
+            <h3 class="service__title">Interior Fitout</h3>
+            <p class="service__desc">Complete fit-out delivery, from flooring to lighting. Every element installed with precision for a ready-to-use, fully functional space.</p>
+          </div>
+        </article>
+
+        <article class="service">
+          <div class="service__index">003</div>
+          <div>
+            <div class="service__icon" aria-hidden="true">
+              <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.2">
+                <circle cx="28" cy="28" r="20"/>
+                <path d="M28 8v40M8 28h40"/>
+                <circle cx="28" cy="28" r="6" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3 class="service__title">Turnkey Projects</h3>
+            <p class="service__desc">From concept to handover — design, execution and finishing managed under one roof. A single point of contact and a single line of accountability.</p>
+          </div>
+        </article>
+
+        <article class="service">
+          <div class="service__index">004</div>
+          <div>
+            <div class="service__icon" aria-hidden="true">
+              <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.2">
+                <rect x="8" y="14" width="40" height="34"/>
+                <path d="M8 22h40M20 14V8M36 14V8M16 30h8M32 30h8M16 38h24"/>
+              </svg>
+            </div>
+            <h3 class="service__title">Joinery &amp; Furniture</h3>
+            <p class="service__desc">Custom joinery and bespoke furniture tailored to space and style — doors, cabinets and statement pieces with premium finishing.</p>
+          </div>
+        </article>
+
+        <article class="service">
+          <div class="service__index">005</div>
+          <div>
+            <div class="service__icon" aria-hidden="true">
+              <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.2">
+                <path d="M4 46c8 0 8-6 16-6s8 6 16 6 8-6 16-6"/>
+                <path d="M16 32V18M28 32V12M40 32V20"/>
+                <circle cx="16" cy="18" r="3" fill="currentColor"/>
+                <circle cx="28" cy="12" r="3" fill="currentColor"/>
+                <circle cx="40" cy="20" r="3" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3 class="service__title">Landscape &amp; Hardscape</h3>
+            <p class="service__desc">Outdoor environments that blend natural beauty with structural elegance — gardens, pathways, stone features and inviting transitions.</p>
+          </div>
+        </article>
+
+        <article class="service">
+          <div class="service__index">006</div>
+          <div>
+            <div class="service__icon" aria-hidden="true">
+              <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.2">
+                <path d="M28 6l4 8 8 1-6 6 1 8-7-4-7 4 1-8-6-6 8-1z"/>
+                <path d="M14 38v12h28V38"/>
+              </svg>
+            </div>
+            <h3 class="service__title">Building Maintenance</h3>
+            <p class="service__desc">Preventive care, repairs and upkeep — keeping property safe, functional and looking its best for the long term.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="fields">
+        <span class="fields__label">Fields —</span>
+        <span class="field-pill">Commercial</span>
+        <span class="field-pill">Residential</span>
+        <span class="field-pill">Medical · Hospitals</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ WORK / PROJECTS ============================ -->
+  <section class="work" id="work">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-head__num">03 — Selected Work</div>
+        <h2 class="section-head__title">A few <em>recent</em> rooms.</h2>
+        <div class="section-head__rule"></div>
+      </div>
+
+      <ul class="work-list" role="list">
+        <li><a class="work-row" href="projects/villa-mohamad.html" data-cursor="view">
+          <span class="work-row__num">01</span>
+          <span class="work-row__cat">Residential</span>
+          <h3 class="work-row__name">Villa Mohamad <em>Khalifa Al Thani</em></h3>
+          <span class="work-row__loc">Doha · 2024</span>
+          <span class="work-row__arrow" aria-hidden="true">→</span>
+        </a></li>
+        <li><a class="work-row" href="projects/qcare-office.html" data-cursor="view">
+          <span class="work-row__num">02</span>
+          <span class="work-row__cat">Commercial</span>
+          <h3 class="work-row__name">Qcare <em>Office</em></h3>
+          <span class="work-row__loc">Doha · 2022</span>
+          <span class="work-row__arrow" aria-hidden="true">→</span>
+        </a></li>
+        <li><a class="work-row" href="projects/faces-cafe.html" data-cursor="view">
+          <span class="work-row__num">03</span>
+          <span class="work-row__cat">Hospitality</span>
+          <h3 class="work-row__name">Faces <em>Café</em></h3>
+          <span class="work-row__loc">Pearl Qatar · 2013</span>
+          <span class="work-row__arrow" aria-hidden="true">→</span>
+        </a></li>
+        <li><a class="work-row" href="projects/infiniti-showroom.html" data-cursor="view">
+          <span class="work-row__num">04</span>
+          <span class="work-row__cat">Retail</span>
+          <h3 class="work-row__name">Infiniti <em>Showroom</em></h3>
+          <span class="work-row__loc">Doha · 2014</span>
+          <span class="work-row__arrow" aria-hidden="true">→</span>
+        </a></li>
+        <li><a class="work-row" href="projects/cuban-hospital.html" data-cursor="view">
+          <span class="work-row__num">05</span>
+          <span class="work-row__cat">Medical</span>
+          <h3 class="work-row__name">Cuban <em>Hospital</em></h3>
+          <span class="work-row__loc">Doha · MRI &amp; X-Ray</span>
+          <span class="work-row__arrow" aria-hidden="true">→</span>
+        </a></li>
+        <li><a class="work-row" href="projects/sakhama.html" data-cursor="view">
+          <span class="work-row__num">06</span>
+          <span class="work-row__cat">Construction</span>
+          <h3 class="work-row__name">Project <em>Sakhama</em></h3>
+          <span class="work-row__loc">Doha · 2023</span>
+          <span class="work-row__arrow" aria-hidden="true">→</span>
+        </a></li>
+      </ul>
+
+      <div class="work__footer">
+        <a class="btn btn--dark" href="projects.html" data-cursor="view">
+          <span class="btn__fill"></span>
+          <span>View All Projects</span>
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ TIMELINE ============================ -->
+  <section class="timeline" id="timeline">
+    <div class="timeline__pin">
+      <div class="container timeline__head">
+        <div class="section-head__num">04 — Undertaking</div>
+        <h2 class="timeline__title">Twelve years,<br/><em>one timeline</em>.</h2>
+        <small class="timeline__hint">Keep scrolling</small>
+      </div>
+
+      <div class="timeline__stage">
+        <div class="timeline__rail"></div>
+        <div class="timeline__progress"></div>
+        <div class="timeline__cursor" aria-hidden="true">
+          <span class="timeline__cursor-dot"></span>
+        </div>
+
+        <div class="timeline__track">
+          <div class="tl-node" data-year="2012" data-label="Lusail Consultant · First Qatar Real Estate">
+            <div class="tl-node__year">2012</div>
+            <div class="tl-node__dot"></div>
+            <div class="tl-node__label">Lusail Consultant<br/>First Qatar Real Estate</div>
+          </div>
+          <div class="tl-node" data-year="2013" data-label="Faces Restaurant · Glamour Salon">
+            <div class="tl-node__year">2013</div>
+            <div class="tl-node__dot"></div>
+            <div class="tl-node__label">Faces Restaurant<br/>Glamour Salon</div>
+          </div>
+          <div class="tl-node" data-year="2014" data-label="Infiniti Showroom">
+            <div class="tl-node__year">2014</div>
+            <div class="tl-node__dot"></div>
+            <div class="tl-node__label">Infiniti Showroom</div>
+          </div>
+          <div class="tl-node" data-year="2015" data-label="HMC X-Ray Department">
+            <div class="tl-node__year">2015</div>
+            <div class="tl-node__dot"></div>
+            <div class="tl-node__label">HMC X-Ray<br/>Department</div>
+          </div>
+          <div class="tl-node" data-year="2016" data-label="Bos Café · Ali Bin Ali Medical">
+            <div class="tl-node__year">2016</div>
+            <div class="tl-node__dot"></div>
+            <div class="tl-node__label">Bos Café<br/>Ali Bin Ali Medical ×3</div>
+          </div>
+          <div class="tl-node" data-year="2018" data-label="Amiri Guard">
+            <div class="tl-node__year">2018</div>
+            <div class="tl-node__dot"></div>
+            <div class="tl-node__label">Amiri Guard</div>
+          </div>
+          <div class="tl-node" data-year="2021" data-label="Q-Care Office · Doc Center">
+            <div class="tl-node__year">2021</div>
+            <div class="tl-node__dot"></div>
+            <div class="tl-node__label">Q-Care Office<br/>Doc Center</div>
+          </div>
+          <div class="tl-node" data-year="2023" data-label="Project Sakhama">
+            <div class="tl-node__year">2023</div>
+            <div class="tl-node__dot"></div>
+            <div class="tl-node__label">Project Sakhama</div>
+          </div>
+          <div class="tl-node" data-year="2024" data-label="Midea Showroom · Al Ahli Hospital">
+            <div class="tl-node__year">2024</div>
+            <div class="tl-node__dot"></div>
+            <div class="tl-node__label">Midea Showroom<br/>Al Ahli Hospital</div>
+          </div>
+          <div class="tl-node" data-year="2025" data-label="LU Gelato · San Rio Store">
+            <div class="tl-node__year">2025</div>
+            <div class="tl-node__dot"></div>
+            <div class="tl-node__label">LU Gelato<br/>San Rio Store</div>
+          </div>
+        </div>
+
+        <div class="timeline__feature">
+          <div class="timeline__feature-year">2012</div>
+          <div class="timeline__feature-sep"></div>
+          <div class="timeline__feature-label">Lusail Consultant · First Qatar Real Estate</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ DREAMSCAPES ============================ -->
+  <section class="dreams" id="dreamscapes">
+    <div class="container">
+      <div class="section-head" style="margin-bottom:48px;">
+        <div class="section-head__num" style="color:#7c6b40;">05 — Dreamscapes</div>
+        <h2 class="section-head__title">Worlds we <em>imagine</em>.</h2>
+        <div class="section-head__rule"></div>
+      </div>
+
+      <div class="dreams__intro">
+        <div></div>
+        <p data-reveal>A library of design concepts we develop with our clients — eight worlds, each a different mood, material palette and emotional register. We design your dream, then we build it.</p>
+      </div>
+
+      <div class="dreams__grid">
+        <a class="dream" data-cursor="view" href="#contact">
+          <span class="dream__num">001</span>
+          <img class="img-fade" src="images/25.jpg" alt="Family Heaven dreamscape" loading="lazy"/>
+          <div class="dream__overlay">
+            <h3 class="dream__name">Family Heaven</h3>
+            <span class="dream__sub">White · Mediterranean</span>
+          </div>
+        </a>
+
+        <a class="dream" data-cursor="view" href="#contact">
+          <span class="dream__num">002</span>
+          <img class="img-fade" src="images/20.jpg" alt="Modern Marvel dreamscape" loading="lazy"/>
+          <div class="dream__overlay">
+            <h3 class="dream__name">Modern Marvel</h3>
+            <span class="dream__sub">Warm Wood · Sculptural</span>
+          </div>
+        </a>
+
+        <a class="dream" data-cursor="view" href="#contact">
+          <span class="dream__num">003</span>
+          <img class="img-fade" src="images/22.jpg" alt="Ancient Majesty dreamscape" loading="lazy"/>
+          <div class="dream__overlay">
+            <h3 class="dream__name">Ancient Majesty</h3>
+            <span class="dream__sub">Deep Teal · Gold</span>
+          </div>
+        </a>
+
+        <a class="dream" data-cursor="view" href="#contact">
+          <span class="dream__num">004</span>
+          <img class="img-fade" src="images/5.jpg" alt="Dream Escape dreamscape" loading="lazy"/>
+          <div class="dream__overlay">
+            <h3 class="dream__name">Dream Escape</h3>
+            <span class="dream__sub">Rose · Soft Light</span>
+          </div>
+        </a>
+
+        <a class="dream" data-cursor="view" href="#contact">
+          <span class="dream__num">005</span>
+          <img class="img-fade" src="images/27.jpg" alt="Magic Wonderland dreamscape" loading="lazy"/>
+          <div class="dream__overlay">
+            <h3 class="dream__name">Magic Wonderland</h3>
+            <span class="dream__sub">Ocean · Playful</span>
+          </div>
+        </a>
+
+        <a class="dream" data-cursor="view" href="#contact">
+          <span class="dream__num">006</span>
+          <img class="img-fade" src="images/30.jpg" alt="Pure Retreat dreamscape" loading="lazy"/>
+          <div class="dream__overlay">
+            <h3 class="dream__name">Pure Retreat</h3>
+            <span class="dream__sub">Pastel · Stone</span>
+          </div>
+        </a>
+
+        <a class="dream" data-cursor="view" href="#contact">
+          <span class="dream__num">007</span>
+          <img class="img-fade" src="images/32.jpg" alt="Fantasy Corner dreamscape" loading="lazy"/>
+          <div class="dream__overlay">
+            <h3 class="dream__name">Fantasy Corner</h3>
+            <span class="dream__sub">Lavender · Blush</span>
+          </div>
+        </a>
+
+        <a class="dream" data-cursor="view" href="#contact">
+          <span class="dream__num">008</span>
+          <img class="img-fade" src="images/33.jpg" alt="Eastern Elegance dreamscape" loading="lazy"/>
+          <div class="dream__overlay">
+            <h3 class="dream__name">Eastern Elegance</h3>
+            <span class="dream__sub">Warm Sand · Gold</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ CONTACT ============================ -->
+  <section class="contact" id="contact">
+    <div class="container contact__grid">
+      <div class="contact__head">
+        <div class="section-head__num" style="margin-bottom:24px;">06 — Let's Talk</div>
+        <h2>Let's build<br/><em>your dream.</em></h2>
+        <p>Tell us about the space and the brief. We'll come back within two working days with a path forward — whether that's a site visit, a concept conversation, or a full proposal.</p>
+
+        <dl class="contact__info">
+          <div class="contact__row">
+            <dt>Studio</dt>
+            <dd>Freej Bin Mahmoud — Al Mana Plaza<br/>2nd Floor, Office 04<br/>P.O. Box 19190, Doha, Qatar</dd>
+          </div>
+          <div class="contact__row">
+            <dt>Phone</dt>
+            <dd><a href="tel:+97466682824">+974 6668 2824</a></dd>
+          </div>
+          <div class="contact__row">
+            <dt>Email</dt>
+            <dd><a href="mailto:info@gantyqatar.com">info@gantyqatar.com</a></dd>
+          </div>
+          <div class="contact__row">
+            <dt>Hours</dt>
+            <dd>Sun – Thu · 09:00 – 18:00</dd>
+          </div>
+        </dl>
+      </div>
+
+      <form class="form" novalidate>
+        <h3>Start a project.</h3>
+
+        <div class="form__field">
+          <label for="f-name">Your name</label>
+          <input type="text" id="f-name" name="name" autocomplete="name" required />
+        </div>
+
+        <div class="form__field">
+          <label for="f-email">Email</label>
+          <input type="email" id="f-email" name="email" autocomplete="email" required />
+        </div>
+
+        <div class="form__field">
+          <label for="f-type">Project type</label>
+          <input type="text" id="f-type" name="type" placeholder="Residential / Commercial / Medical" />
+        </div>
+
+        <div class="form__field">
+          <label for="f-msg">Brief</label>
+          <textarea id="f-msg" name="message" rows="3" placeholder="Tell us about the space, scope and timeline."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn--gold" data-cursor="view">
+          <span class="btn__fill"></span>
+          <span class="btn__label">Send Message</span>
+          <span aria-hidden="true">→</span>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="foot">
+    <div class="container foot__inner">
+      <div class="foot__brand">
+        <div class="brand brand--sm">
+          <svg class="brand__svg" viewBox="0 0 180 72" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ganty">
+          <text x="131" y="22" font-family="DM Sans, sans-serif" font-weight="900" font-size="28" fill="#c9a96e" text-anchor="middle">*</text>
+          <text x="0" y="60" font-family="DM Sans, sans-serif" font-weight="800" font-size="56" letter-spacing="-1.8" fill="#8e8e8e">ga</text>
+          <text x="62" y="60" font-family="DM Sans, sans-serif" font-weight="800" font-size="56" letter-spacing="-1.8" fill="#f5f2ee">nty</text>
+        </svg>
+        <span class="brand__sub">Design &amp; Decoration W.L.L.</span>
+        </div>
+        <span class="foot__copy">© 2025 Ganty Design &amp; Decoration W.L.L.</span>
+      </div>
+      <div>Doha · Qatar — From Vision to Reality</div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
