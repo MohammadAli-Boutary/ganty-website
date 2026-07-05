@@ -15,6 +15,7 @@
       .replaceAll("'", "&#39;");
 
   const normalizeAsset = (src) => String(src || "").replace(/^\/+/, "");
+  const stripTags = (value) => String(value || "").replace(/<[^>]*>/g, "");
 
   function projectCard(project, index) {
     const isComing = Boolean(project.comingSoon);
@@ -27,7 +28,11 @@
     ].filter(Boolean).join(" ");
     const number = String(index + 1).padStart(2, "0");
     const year = project.year ? ` — ${escapeHtml(project.year)}` : "";
-    const title = project.titleHtml || escapeHtml(project.title);
+    const plainTitle = String(project.title || "");
+    const styledTitle = String(project.titleHtml || "");
+    const title = styledTitle && stripTags(styledTitle) === plainTitle
+      ? styledTitle
+      : escapeHtml(plainTitle);
 
     return `
       <${tag} class="${classes}"${href} data-cat="${escapeHtml(project.categoryKey)}" data-cursor="view">

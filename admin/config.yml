@@ -22,7 +22,7 @@ collections:
             summary: "{{fields.title}} · {{fields.category}}"
             fields:
               - { label: "Title", name: "title", widget: "string" }
-              - { label: "Styled Title", name: "titleHtml", widget: "string", hint: "Optional HTML is allowed, for example: Villa <em>Name</em>." }
+              - { label: "Styled Title", name: "titleHtml", widget: "string", hint: "Optional. Use only when you want italics, for example: Villa <em>Name</em>. If the plain Title is changed, the plain Title will show until this is updated too." }
               - { label: "Category Label", name: "category", widget: "string" }
               - label: "Category Key"
                 name: "categoryKey"
@@ -41,4 +41,3 @@ collections:
               - { label: "Detail Page URL", name: "url", widget: "string", required: false, hint: "Leave empty for Case Study Soon cards." }
               - { label: "Featured Card", name: "featured", widget: "boolean", default: false }
               - { label: "Case Study Soon", name: "comingSoon", widget: "boolean", default: false }
-
