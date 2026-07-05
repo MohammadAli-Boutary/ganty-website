@@ -1,0 +1,44 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "images"
+
+publish_mode: simple
+
+collections:
+  - name: "content"
+    label: "Content"
+    files:
+      - name: "projects"
+        label: "Projects Listing"
+        file: "data/projects.json"
+        format: "json"
+        fields:
+          - label: "Projects"
+            name: "projects"
+            widget: "list"
+            summary: "{{fields.title}} · {{fields.category}}"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Styled Title", name: "titleHtml", widget: "string", hint: "Optional HTML is allowed, for example: Villa <em>Name</em>." }
+              - { label: "Category Label", name: "category", widget: "string" }
+              - label: "Category Key"
+                name: "categoryKey"
+                widget: "select"
+                options:
+                  - { label: "Residential", value: "residential" }
+                  - { label: "Commercial", value: "commercial" }
+                  - { label: "Hospitality", value: "hospitality" }
+                  - { label: "Medical", value: "medical" }
+                  - { label: "Retail", value: "retail" }
+                  - { label: "Construction", value: "construction" }
+              - { label: "Year", name: "year", widget: "string", required: false }
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Image Alt Text", name: "alt", widget: "string" }
+              - { label: "Subtitle", name: "subtitle", widget: "string" }
+              - { label: "Detail Page URL", name: "url", widget: "string", required: false, hint: "Leave empty for Case Study Soon cards." }
+              - { label: "Featured Card", name: "featured", widget: "boolean", default: false }
+              - { label: "Case Study Soon", name: "comingSoon", widget: "boolean", default: false }
+
