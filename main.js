@@ -477,6 +477,121 @@
     });
   }
 
+  /* -------------------------------------------------- motion lab */
+  function initMotionLab() {
+    const section = document.querySelector(".motion-lab");
+    const stage = document.querySelector(".motion-lab__stage");
+    const svg = document.querySelector(".motion-lab__svg");
+    if (!section || !stage || !svg) return;
+
+    const lines = gsap.utils.toArray(".motion-line, .motion-orbit");
+    const planes = gsap.utils.toArray(".motion-plane");
+    const particles = gsap.utils.toArray(".motion-particle");
+    const beacons = gsap.utils.toArray(".motion-beacon");
+
+    if (!reduceMotion) {
+      lines.forEach((line) => {
+        const length = line.getTotalLength ? line.getTotalLength() : 0;
+        if (!length) return;
+        gsap.set(line, { strokeDasharray: length, strokeDashoffset: length });
+      });
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: "top 70%",
+          end: "center 40%",
+          scrub: 0.9,
+        },
+      });
+
+      tl.to(lines, {
+        strokeDashoffset: 0,
+        duration: 1,
+        stagger: 0.045,
+        ease: "power2.out",
+      })
+      .from(planes, {
+        opacity: 0,
+        y: 38,
+        scale: 0.96,
+        duration: 0.8,
+        stagger: 0.08,
+        ease: "power3.out",
+      }, 0.16)
+      .from(particles, {
+        opacity: 0,
+        scale: 0,
+        duration: 0.45,
+        stagger: 0.08,
+        ease: "back.out(1.8)",
+      }, 0.54);
+
+      gsap.to(planes, {
+        y: (i) => [-18, 14, -10][i] || -12,
+        rotation: (i) => [-2.2, 2.4, -1.4][i] || 1,
+        duration: (i) => [4.8, 5.6, 4.2][i] || 5,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+      });
+
+      gsap.to(particles, {
+        rotation: (i) => i % 2 ? -360 : 360,
+        duration: (i) => [9, 12, 15][i] || 10,
+        repeat: -1,
+        ease: "none",
+        transformOrigin: "450px 270px",
+      });
+
+      gsap.to(beacons, {
+        scale: 1.35,
+        opacity: 0,
+        duration: 2.8,
+        repeat: -1,
+        stagger: 0.7,
+        ease: "power2.out",
+        transformOrigin: "center center",
+      });
+
+      gsap.to(svg, {
+        y: -22,
+        scrollTrigger: {
+          trigger: section,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+    }
+
+    if (canHover && !reduceMotion) {
+      stage.addEventListener("pointermove", (e) => {
+        const rect = stage.getBoundingClientRect();
+        const px = (e.clientX - rect.left) / rect.width - 0.5;
+        const py = (e.clientY - rect.top) / rect.height - 0.5;
+        stage.style.setProperty("--mx", `${(px + 0.5) * 100}%`);
+        stage.style.setProperty("--my", `${(py + 0.5) * 100}%`);
+        gsap.to(svg, {
+          rotateX: 56 - py * 5,
+          rotateZ: -36 + px * 4,
+          duration: 0.8,
+          ease: "power3.out",
+          overwrite: true,
+        });
+      });
+
+      stage.addEventListener("pointerleave", () => {
+        gsap.to(svg, {
+          rotateX: 56,
+          rotateZ: -36,
+          duration: 1.1,
+          ease: "elastic.out(1, 0.55)",
+        });
+      });
+    }
+  }
+
   /* -------------------------------------------------- timeline (pinned scroll-driven) */
   function initTimeline() {
     const pin = document.querySelector(".timeline__pin");
@@ -612,6 +727,7 @@
     initStats();
     initServiceTilt();
     initWork();
+    initMotionLab();
     initTimeline();
     initDreams();
     initVisionParallax();

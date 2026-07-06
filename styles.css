@@ -1131,6 +1131,171 @@ section { position: relative; }
 .btn--dark:hover .btn__fill { transform: scaleY(0); transform-origin: top; }
 
 /* ============================================================
+   MOTION LAB - animated SVG installation
+   ============================================================ */
+.motion-lab {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 76% 24%, rgba(201, 169, 110, 0.16), transparent 28%),
+    linear-gradient(135deg, #10100f 0%, #1a1a1a 48%, #26231d 100%);
+  color: var(--bone);
+  padding: 150px 0;
+}
+.motion-lab::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(245, 242, 238, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245, 242, 238, 0.03) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(circle at 70% 46%, black 0%, transparent 68%);
+  -webkit-mask-image: radial-gradient(circle at 70% 46%, black 0%, transparent 68%);
+  pointer-events: none;
+}
+.motion-lab__grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(280px, 0.78fr) minmax(420px, 1.22fr);
+  align-items: center;
+  gap: clamp(44px, 7vw, 120px);
+}
+.motion-lab__copy {
+  max-width: 470px;
+}
+.motion-lab__copy .section-head__num {
+  color: var(--gold);
+  margin-bottom: 24px;
+}
+.motion-lab__title {
+  font-family: var(--display);
+  font-size: clamp(58px, 8vw, 118px);
+  font-weight: 300;
+  line-height: 0.92;
+  margin-bottom: 28px;
+}
+.motion-lab__title em {
+  color: var(--gold);
+  font-style: italic;
+}
+.motion-lab__copy p {
+  color: rgba(245, 242, 238, 0.68);
+  font-size: 16px;
+  line-height: 1.8;
+  max-width: 390px;
+}
+.motion-lab__stage {
+  position: relative;
+  min-height: clamp(420px, 52vw, 650px);
+  display: grid;
+  place-items: center;
+  perspective: 1200px;
+  isolation: isolate;
+  --mx: 50%;
+  --my: 48%;
+}
+.motion-lab__glow {
+  position: absolute;
+  inset: 8%;
+  z-index: -1;
+  background:
+    radial-gradient(circle at var(--mx) var(--my), rgba(201, 169, 110, 0.32), transparent 26%),
+    radial-gradient(circle at 48% 56%, rgba(245, 242, 238, 0.08), transparent 36%);
+  filter: blur(18px);
+  opacity: 0.9;
+  transform: translateZ(-90px);
+  pointer-events: none;
+}
+.motion-lab__svg {
+  width: min(100%, 820px);
+  height: auto;
+  overflow: visible;
+  transform: rotateX(56deg) rotateZ(-36deg);
+  transform-style: preserve-3d;
+  filter: drop-shadow(0 42px 70px rgba(0, 0, 0, 0.36));
+  will-change: transform;
+}
+.motion-line,
+.motion-orbit {
+  fill: none;
+  stroke: url(#motionGold);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.motion-line--floor { stroke-width: 2.8; }
+.motion-line--inner,
+.motion-line--detail {
+  stroke: rgba(245, 242, 238, 0.38);
+  stroke-width: 1.35;
+}
+.motion-line--detail {
+  stroke: rgba(201, 169, 110, 0.48);
+}
+.motion-plane {
+  fill: url("#motionGlass");
+  stroke: rgba(245, 242, 238, 0.18);
+  stroke-width: 1;
+  opacity: 0.62;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.motion-plane--one { fill-opacity: 0.72; }
+.motion-plane--two { fill-opacity: 0.54; }
+.motion-plane--three {
+  fill: rgba(201, 169, 110, 0.16);
+  stroke: rgba(201, 169, 110, 0.34);
+}
+.motion-orbit {
+  stroke: rgba(201, 169, 110, 0.42);
+  stroke-dasharray: 6 16;
+}
+.motion-particle {
+  fill: var(--gold);
+  transform-box: view-box;
+  transform-origin: 450px 270px;
+}
+.motion-beacon {
+  fill: none;
+  stroke: rgba(201, 169, 110, 0.5);
+  stroke-width: 1.3;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@media (max-width: 1000px) {
+  .motion-lab { padding: 110px 0; }
+  .motion-lab__grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .motion-lab__copy {
+    max-width: 640px;
+  }
+  .motion-lab__stage {
+    min-height: clamp(360px, 72vw, 560px);
+  }
+}
+@media (max-width: 600px) {
+  .motion-lab { padding: 84px 0 92px; }
+  .motion-lab__title {
+    font-size: clamp(48px, 15vw, 68px);
+  }
+  .motion-lab__copy p {
+    font-size: 15px;
+  }
+  .motion-lab__stage {
+    min-height: 320px;
+    margin-inline: -22px;
+  }
+  .motion-lab__svg {
+    width: 118%;
+  }
+}
+
+/* ============================================================
    TIMELINE — pinned scroll-driven
    ============================================================ */
 .timeline {

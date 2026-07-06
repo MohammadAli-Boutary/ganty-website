@@ -389,11 +389,83 @@
     </div>
   </section>
 
+  <!-- ============================ MOTION STUDY ============================ -->
+  <section class="motion-lab" id="motion-lab">
+    <div class="container motion-lab__grid">
+      <div class="motion-lab__copy">
+        <div class="section-head__num">04 - Motion Study</div>
+        <h2 class="motion-lab__title">Space, drawn in <em>motion</em>.</h2>
+        <p>
+          A small architectural animation built from light, lines and material planes,
+          echoing the way an interior moves from sketch to finished atmosphere.
+        </p>
+      </div>
+
+      <div class="motion-lab__stage" aria-label="Animated architectural spatial study">
+        <div class="motion-lab__glow" aria-hidden="true"></div>
+        <svg class="motion-lab__svg" viewBox="0 0 900 620" role="img" aria-labelledby="motionLabTitle motionLabDesc">
+          <title id="motionLabTitle">Architectural motion study</title>
+          <desc id="motionLabDesc">Animated SVG of an isometric interior plan with orbiting markers and floating material panels.</desc>
+          <defs>
+            <linearGradient id="motionGold" x1="160" y1="60" x2="760" y2="560" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#f5f2ee" stop-opacity="0.95" />
+              <stop offset="0.45" stop-color="#c9a96e" stop-opacity="0.9" />
+              <stop offset="1" stop-color="#7f673a" stop-opacity="0.75" />
+            </linearGradient>
+            <linearGradient id="motionGlass" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ffffff" stop-opacity="0.28" />
+              <stop offset="1" stop-color="#c9a96e" stop-opacity="0.02" />
+            </linearGradient>
+            <filter id="motionSoftGlow" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur stdDeviation="8" result="blur" />
+              <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.78 0 0 0 0 0.62 0 0 0 0 0.32 0 0 0 0.7 0" />
+              <feMerge>
+                <feMergeNode />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+
+          <g class="motion-lab__floor">
+            <path class="motion-line motion-line--floor" d="M450 94 L752 268 L450 446 L148 268 Z" />
+            <path class="motion-line motion-line--inner" d="M450 158 L642 270 L450 383 L258 270 Z" />
+            <path class="motion-line motion-line--inner" d="M450 94 L450 446" />
+            <path class="motion-line motion-line--inner" d="M148 268 L752 268" />
+          </g>
+
+          <g class="motion-lab__planes">
+            <path class="motion-plane motion-plane--one" d="M258 270 L450 158 L450 383 L258 494 Z" />
+            <path class="motion-plane motion-plane--two" d="M450 158 L642 270 L642 494 L450 383 Z" />
+            <path class="motion-plane motion-plane--three" d="M320 214 L450 138 L580 214 L450 290 Z" />
+          </g>
+
+          <g class="motion-lab__details">
+            <path class="motion-line motion-line--detail" d="M305 270 C345 238 389 222 450 222 C512 222 556 238 596 270" />
+            <path class="motion-line motion-line--detail" d="M338 319 C372 297 408 286 450 286 C492 286 528 297 562 319" />
+            <path class="motion-line motion-line--detail" d="M380 365 C400 354 424 348 450 348 C477 348 500 354 520 365" />
+          </g>
+
+          <g class="motion-lab__orbit" filter="url(#motionSoftGlow)">
+            <ellipse class="motion-orbit" cx="450" cy="270" rx="238" ry="138" />
+            <circle class="motion-particle motion-particle--one" cx="212" cy="270" r="5" />
+            <circle class="motion-particle motion-particle--two" cx="688" cy="270" r="5" />
+            <circle class="motion-particle motion-particle--three" cx="450" cy="132" r="4" />
+          </g>
+
+          <g class="motion-lab__beacons">
+            <circle class="motion-beacon" cx="450" cy="270" r="42" />
+            <circle class="motion-beacon motion-beacon--delay" cx="450" cy="270" r="76" />
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
   <!-- ============================ TIMELINE ============================ -->
   <section class="timeline" id="timeline">
     <div class="timeline__pin">
       <div class="container timeline__head">
-        <div class="section-head__num">04 — Undertaking</div>
+        <div class="section-head__num">05 — Undertaking</div>
         <h2 class="timeline__title">Twelve years,<br/><em>one timeline</em>.</h2>
         <small class="timeline__hint">Keep scrolling</small>
       </div>
@@ -471,7 +543,7 @@
   <section class="dreams" id="dreamscapes">
     <div class="container">
       <div class="section-head" style="margin-bottom:48px;">
-        <div class="section-head__num" style="color:#7c6b40;">05 — Dreamscapes</div>
+        <div class="section-head__num" style="color:#7c6b40;">06 — Dreamscapes</div>
         <h2 class="section-head__title">Worlds we <em>imagine</em>.</h2>
         <div class="section-head__rule"></div>
       </div>
@@ -561,7 +633,7 @@
   <section class="contact" id="contact">
     <div class="container contact__grid">
       <div class="contact__head">
-        <div class="section-head__num" style="margin-bottom:24px;">06 — Let's Talk</div>
+        <div class="section-head__num" style="margin-bottom:24px;">07 — Let's Talk</div>
         <h2>Let's build<br/><em>your dream.</em></h2>
         <p>Tell us about the space and the brief. We'll come back within two working days with a path forward — whether that's a site visit, a concept conversation, or a full proposal.</p>
 
