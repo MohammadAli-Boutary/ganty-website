@@ -6,6 +6,7 @@
 
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const isMobile = window.matchMedia("(max-width: 900px)").matches;
+  const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
   /* -------------------------------------------------- Lenis smooth scroll */
   function initLenis() {
@@ -140,6 +141,133 @@
       el.addEventListener("mouseenter", () => ring.classList.add("is-view"));
       el.addEventListener("mouseleave", () => ring.classList.remove("is-view"));
     });
+  }
+
+  /* -------------------------------------------------- premium interaction layer */
+  function initHeroAmbient() {
+    if (isMobile || reduceMotion) return;
+    const hero = document.querySelector(".hero");
+    const bg = document.querySelector(".hero__bg");
+    if (!hero || !bg) return;
+
+    hero.addEventListener("pointermove", (e) => {
+      const rect = hero.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      bg.style.setProperty("--mx", `${x}%`);
+      bg.style.setProperty("--my", `${y}%`);
+    });
+  }
+
+  function initMagneticControls(scope = document) {
+    if (!canHover || reduceMotion) return;
+    scope.querySelectorAll(".btn, .nav__cta, .filter-chip").forEach((el) => {
+      if (el.dataset.magneticBound) return;
+      el.dataset.magneticBound = "true";
+      el.addEventListener("pointermove", (e) => {
+        const rect = el.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        gsap.to(el, {
+          x: x * 0.16,
+          y: y * 0.22,
+          scale: 1.025,
+          duration: 0.45,
+          ease: "power3.out",
+          overwrite: true,
+        });
+      });
+      el.addEventListener("pointerleave", () => {
+        gsap.to(el, { x: 0, y: 0, scale: 1, duration: 0.7, ease: "elastic.out(1, 0.45)" });
+      });
+    });
+  }
+
+  function initEditorialHover(scope = document) {
+    if (!canHover || reduceMotion) return;
+    scope.querySelectorAll(".dream, .proj-card, .pd-gallery__item").forEach((card) => {
+      if (card.dataset.editorialHoverBound) return;
+      card.dataset.editorialHoverBound = "true";
+      card.addEventListener("pointermove", (e) => {
+        const rect = card.getBoundingClientRect();
+        const px = (e.clientX - rect.left) / rect.width - 0.5;
+        const py = (e.clientY - rect.top) / rect.height - 0.5;
+        card.style.setProperty("--rx", `${-py * 5}deg`);
+        card.style.setProperty("--ry", `${px * 5}deg`);
+        card.style.setProperty("--sx", `${(px + 0.5) * 100}%`);
+        card.style.setProperty("--sy", `${(py + 0.5) * 100}%`);
+      });
+      card.addEventListener("pointerleave", () => {
+        card.style.setProperty("--rx", "0deg");
+        card.style.setProperty("--ry", "0deg");
+      });
+    });
+  }
+
+  function initImageReveals(scope = document) {
+    if (reduceMotion) return;
+    scope.querySelectorAll(".img-fade").forEach((img) => {
+      if (img.dataset.revealBound) return;
+      img.dataset.revealBound = "true";
+      const target = img.closest(".dream, .proj-card, .pd-gallery__item, .about__photo, .pd-hero__media") || img;
+      gsap.set(target, { clipPath: "inset(10% 0% 10% 0%)" });
+      gsap.set(img, { scale: 1.08 });
+      ScrollTrigger.create({
+        trigger: target,
+        start: "top 88%",
+        once: true,
+        onEnter: () => {
+          gsap.to(target, {
+            clipPath: "inset(0% 0% 0% 0%)",
+            duration: 1.25,
+            ease: "expo.out",
+          });
+          gsap.to(img, {
+            scale: 1,
+            duration: 1.45,
+            ease: "power3.out",
+          });
+        },
+      });
+    });
+  }
+
+  function initSectionDrift(scope = document) {
+    if (reduceMotion) return;
+    scope.querySelectorAll(".stat, .contact__row, .pd-meta__item").forEach((el, index) => {
+      if (el.dataset.driftBound) return;
+      el.dataset.driftBound = "true";
+      gsap.from(el, {
+        scrollTrigger: { trigger: el, start: "top 88%" },
+        y: 26,
+        opacity: 0,
+        filter: "blur(8px)",
+        duration: 0.85,
+        delay: Math.min(index * 0.025, 0.18),
+        ease: "power3.out",
+      });
+    });
+  }
+
+  function initPageTransitions() {
+    if (reduceMotion) return;
+    document.addEventListener("click", (e) => {
+      const link = e.target.closest("a");
+      if (!link || link.target || link.hasAttribute("download")) return;
+      const url = new URL(link.href, window.location.href);
+      if (url.origin !== window.location.origin || url.hash && url.pathname === window.location.pathname) return;
+      if (!url.pathname.endsWith(".html") && url.pathname !== "/" && !url.pathname.endsWith("/")) return;
+      e.preventDefault();
+      document.body.classList.add("page-is-leaving");
+      setTimeout(() => { window.location.href = url.href; }, 420);
+    });
+  }
+
+  function initPremiumMotion(scope = document) {
+    initMagneticControls(scope);
+    initEditorialHover(scope);
+    initImageReveals(scope);
+    initSectionDrift(scope);
   }
 
   /* -------------------------------------------------- nav scroll */
@@ -477,6 +605,8 @@
     initImgFade();
     initCursor();
     initNav();
+    initHeroAmbient();
+    initPageTransitions();
     initMarquee();
     initSectionHeads();
     initStats();
@@ -487,8 +617,15 @@
     initVisionParallax();
     initContact();
     initForm();
+    initPremiumMotion();
     await runPreloader();
     initHero();
     ScrollTrigger.refresh();
+  });
+
+  document.addEventListener("ganty:content-rendered", (event) => {
+    initPremiumMotion(event.detail?.scope || event.target || document);
+    initImgFade();
+    if (window.ScrollTrigger) ScrollTrigger.refresh();
   });
 })();

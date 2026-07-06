@@ -160,5 +160,6 @@
     initImgFade(grid);
     initCardCursor(grid);
     initFilters();
+    document.dispatchEvent(new CustomEvent("ganty:content-rendered", { detail: { scope: grid } }));
   });
 })();
