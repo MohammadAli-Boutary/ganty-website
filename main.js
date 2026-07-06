@@ -412,17 +412,23 @@
       const numEl = stat.querySelector(".stat__num .val");
       if (!numEl) return;
       const final = +numEl.dataset.to;
-      const obj = { v: 0 };
+      const state = { value: 0 };
+      const render = gsap.quickSetter(numEl, "textContent");
       ScrollTrigger.create({
         trigger: stat,
-        start: "top 85%",
+        start: "top 90%",
         once: true,
         onEnter: () => {
-          gsap.to(obj, {
-            v: final,
-            duration: 2,
-            ease: "power2.out",
-            onUpdate: () => { numEl.textContent = Math.floor(obj.v); },
+          gsap.fromTo(numEl,
+            { yPercent: 18, opacity: 0 },
+            { yPercent: 0, opacity: 1, duration: 0.55, ease: "power3.out" }
+          );
+          gsap.to(state, {
+            value: final,
+            duration: 2.4,
+            ease: "expo.out",
+            onUpdate: () => render(String(Math.round(state.value))),
+            onComplete: () => render(String(final)),
           });
         },
       });

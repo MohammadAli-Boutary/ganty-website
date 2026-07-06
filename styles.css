@@ -800,7 +800,15 @@ section { position: relative; }
   font-size: clamp(56px, 8vw, 110px);
   line-height: 1;
   color: var(--ink);
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
+  font-variant-numeric: tabular-nums;
+  min-height: 1em;
+}
+.stat__num .val {
+  display: inline-block;
+  min-width: 1.18em;
+  text-align: right;
+  will-change: transform, opacity;
 }
 .stat__num .suffix { color: var(--gold); font-size: 0.55em; vertical-align: top; margin-left: 2px; }
 .stat__label {
@@ -1845,10 +1853,15 @@ section { position: relative; }
   color: inherit;
   line-height: 1;
 }
-.brand__svg {
-  height: 38px;
-  width: auto;
+.brand::before {
+  content: "";
   display: block;
+  width: calc(38px * 2.3529);
+  height: 38px;
+  background: url("images/logo.png") left center / contain no-repeat;
+}
+.brand__svg {
+  display: none;
 }
 .brand__svg text { text-transform: none; }
 .brand__sub {
@@ -1861,15 +1874,22 @@ section { position: relative; }
   white-space: nowrap;
   padding-left: 2px;
 }
-.brand--sm .brand__svg { height: 30px; }
+.brand--sm::before { width: calc(30px * 2.3529); height: 30px; }
 .brand--sm .brand__sub { font-size: 7px; letter-spacing: 0.22em; }
 .brand--lg { gap: 14px; }
-.brand--lg .brand__svg { height: clamp(80px, 14vw, 160px); }
+.brand--lg::before {
+  width: calc(clamp(80px, 14vw, 160px) * 2.3529);
+  height: clamp(80px, 14vw, 160px);
+}
 .brand--lg .brand__sub { font-size: clamp(10px, 1.1vw, 14px); letter-spacing: 0.4em; }
 
 @media (max-width: 600px) {
-  .brand__svg { height: 32px; }
+  .brand::before { width: calc(32px * 2.3529); height: 32px; }
   .brand__sub { font-size: 7px; letter-spacing: 0.22em; }
+  .brand--lg::before {
+    width: calc(clamp(76px, 24vw, 112px) * 2.3529);
+    height: clamp(76px, 24vw, 112px);
+  }
   .brand--lg .brand__sub {
     max-width: 260px;
     white-space: normal;
