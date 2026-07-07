@@ -208,8 +208,14 @@
     if (reduceMotion) return;
     scope.querySelectorAll(".img-fade").forEach((img) => {
       if (img.dataset.revealBound) return;
+      if (img.closest(".pd-hero__media")) {
+        img.dataset.revealBound = "true";
+        gsap.set(img.closest(".pd-hero__media"), { clipPath: "none" });
+        gsap.set(img, { opacity: 1, scale: 1 });
+        return;
+      }
       img.dataset.revealBound = "true";
-      const target = img.closest(".dream, .proj-card, .pd-gallery__item, .about__photo, .pd-hero__media") || img;
+      const target = img.closest(".dream, .proj-card, .pd-gallery__item, .about__photo") || img;
       gsap.set(target, { clipPath: "inset(10% 0% 10% 0%)" });
       gsap.set(img, { scale: 1.08 });
       ScrollTrigger.create({
@@ -234,7 +240,7 @@
 
   function initSectionDrift(scope = document) {
     if (reduceMotion) return;
-    scope.querySelectorAll(".stat, .contact__row, .pd-meta__item").forEach((el, index) => {
+    scope.querySelectorAll(".contact__row, .pd-meta__item").forEach((el, index) => {
       if (el.dataset.driftBound) return;
       el.dataset.driftBound = "true";
       gsap.from(el, {
@@ -410,26 +416,42 @@
   function initStats() {
     document.querySelectorAll(".stat").forEach((stat) => {
       const numEl = stat.querySelector(".stat__num .val");
+      const suffix = stat.querySelector(".stat__num .suffix");
       if (!numEl) return;
       const final = +numEl.dataset.to;
       const state = { value: 0 };
       const render = gsap.quickSetter(numEl, "textContent");
+      render("0");
+      gsap.set(stat, { autoAlpha: 0, y: 28, filter: "blur(10px)" });
+      gsap.set(numEl, { autoAlpha: 0, yPercent: 26 });
+      if (suffix) gsap.set(suffix, { autoAlpha: 0, yPercent: 26 });
       ScrollTrigger.create({
         trigger: stat,
         start: "top 90%",
         once: true,
         onEnter: () => {
-          gsap.fromTo(numEl,
-            { yPercent: 18, opacity: 0 },
-            { yPercent: 0, opacity: 1, duration: 0.55, ease: "power3.out" }
-          );
-          gsap.to(state, {
+          const tl = gsap.timeline();
+          tl.to(stat, {
+            autoAlpha: 1,
+            y: 0,
+            filter: "blur(0px)",
+            duration: 0.7,
+            ease: "power3.out",
+          })
+          .to([numEl, suffix].filter(Boolean), {
+            autoAlpha: 1,
+            yPercent: 0,
+            duration: 0.65,
+            stagger: 0.05,
+            ease: "power3.out",
+          }, 0.08)
+          .to(state, {
             value: final,
-            duration: 2.4,
+            duration: 2.8,
             ease: "expo.out",
             onUpdate: () => render(String(Math.round(state.value))),
             onComplete: () => render(String(final)),
-          });
+          }, 0.16);
         },
       });
     });

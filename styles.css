@@ -810,7 +810,14 @@ section { position: relative; }
   text-align: right;
   will-change: transform, opacity;
 }
-.stat__num .suffix { color: var(--gold); font-size: 0.55em; vertical-align: top; margin-left: 2px; }
+.stat__num .suffix {
+  display: inline-block;
+  color: var(--gold);
+  font-size: 0.55em;
+  vertical-align: top;
+  margin-left: 2px;
+  will-change: transform, opacity;
+}
 .stat__label {
   margin-top: 10px;
   font-size: 11px;
